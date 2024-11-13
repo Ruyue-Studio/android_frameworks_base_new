@@ -76,6 +76,7 @@ import com.android.systemui.qs.logging.QSLogger
 import com.android.systemui.qs.tileimpl.QSIconViewImpl.QS_ANIM_LENGTH
 import com.android.systemui.res.R
 import com.android.internal.util.systemui.qs.QSLayoutUtils
+import com.android.systemui.qs.TileUtils
 import java.util.Objects
 import java.util.Random
 
@@ -559,7 +560,8 @@ constructor(
         // is too short.
         val constrainedSquishiness = constrainSquishiness(squishinessFraction)
         bottom = top + (actualHeight * constrainedSquishiness).toInt()
-        scrollY = (actualHeight - height) / if (vertical) 7 else 2
+        val widgetsEnabled = TileUtils.isQsWidgetsEnabled(mContext)
+        scrollY = (actualHeight - height) / (if (vertical) 7 else 2) + if (widgetsEnabled) 2 else 0
         label.alpha = if (!vertical) 1.0f else Math.pow(squishinessFraction.toDouble(), 7.0).toFloat()
         maybeUpdateLongPressEffectHeight(actualHeight.toFloat())
     }
