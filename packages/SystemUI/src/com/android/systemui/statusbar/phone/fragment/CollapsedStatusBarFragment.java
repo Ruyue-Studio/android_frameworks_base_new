@@ -1055,7 +1055,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             pw.decreaseIndent();
         }
     }
-    
+
     private class LyricController extends LyricViewController {
         private View mLeftSide;
         public LyricController(Context context, View statusBar) {
@@ -1065,7 +1065,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         public void showLyricView(boolean animate) {
             StatusBarVisibilityModel visibilityModel = mLastModifiedVisibility;
             boolean disableNotifications = !visibilityModel.getShowNotificationIcons();
-            boolean hasOngoingCall = visibilityModel.getShowOngoingCallChip();
+            boolean hasOngoingCall = visibilityModel.getShowOngoingActivityChip();
             if (!disableNotifications && !hasOngoingCall && isLyricStarted()) {
                 animateHide(mLeftSide, animate);
                 animateShow(getView(), animate);
