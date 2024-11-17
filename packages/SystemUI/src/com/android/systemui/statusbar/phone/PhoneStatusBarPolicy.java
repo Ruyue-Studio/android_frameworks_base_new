@@ -196,7 +196,6 @@ public class PhoneStatusBarPolicy
     private AlarmManager.AlarmClockInfo mNextAlarm;
 
     private NfcAdapter mAdapter;
-    private final Context mContext;
 
     private TunerService mTunerService;
 
