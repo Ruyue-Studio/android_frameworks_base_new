@@ -520,7 +520,7 @@ public class StatusBarIconView extends AnimatedImageView implements StatusIconDi
         return getIcon(getContext(), notifContext != null ? notifContext : getContext(), icon);
     }
 
-    private Drawable getIcon(Context context, StatusBarIcon statusBarIcon, int userId) {
+    private static Drawable getIcon(Context context, StatusBarIcon statusBarIcon, int userId) {
         // Try to load the monochrome app icon if applicable
         Drawable icon = maybeGetMonochromeAppIcon(context, statusBarIcon);
         // Otherwise, just use the icon normally
